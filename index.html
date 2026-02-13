@@ -9,106 +9,110 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* ESTILOS GENERALES */
+        /* --- CONFIGURACIÓN GENERAL --- */
         body {
             background-color: #f4f7f6;
             font-family: 'Montserrat', sans-serif;
-            color: #4a4a4a;
+            color: #555; /* Texto gris oscuro suave para lectura */
             line-height: 1.6;
+            margin: 0;
         }
-        
-        /* --- FONDO Y TRANSPARENCIAS --- */
+
+        /* --- CONTENEDOR PRINCIPAL --- */
         .invitacion-container {
-            max-width: 450px;
+            max-width: 480px; /* Ancho estándar de móvil moderno */
             margin: 0 auto;
             
-            /* CAMBIO CLAVE: La capa blanca ahora es muy tenue (0.1 de opacidad)
-               para que el fondo de Tiana se vea clarito como en la referencia.
-            */
+            /* Fondo con capa blanca muy tenue (15%) para ver la imagen de atrás */
             background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), 
+                linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)), 
                 url('https://drive.google.com/thumbnail?id=1aMeMr_qcQWX88VyJlFzJS5pOx1iah0dW&sz=w1000');
             
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            background-attachment: fixed; /* Efecto Parallax */
+            box-shadow: 0 0 25px rgba(0,0,0,0.15);
             min-height: 100vh;
             position: relative;
-            padding-bottom: 80px; 
+            padding-bottom: 60px;
             overflow-x: hidden;
         }
 
         .content-wrapper {
-            padding: 60px 25px 20px 25px;
+            padding: 50px 20px;
         }
 
-        /* --- NUEVA TIPOGRAFÍA Y COMPOSICIÓN (ESTILO NURIA) --- */
+        /* --- PALETA DE COLORES --- */
+        :root {
+            --color-primary: #6b8e4e; /* Verde Salvia (Como en la referencia) */
+            --color-dark: #2c2c2c;    /* Gris casi negro para títulos */
+            --color-light: #ffffff;
+        }
+
+        /* --- TIPOGRAFÍA Y ENCABEZADOS --- */
         
         .header-group {
+            text-align: center;
+            margin-bottom: 40px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 40px;
-            position: relative;
+            justify-content: center;
         }
 
-        /* Estilo para "Mis 15 Años" - Serif elegante y oscuro */
+        /* Título: "Mis 15 Años" - Fuente Serif, Oscura, Elegante */
         .sub-title {
             font-family: 'Playfair Display', serif;
-            color: #2c2c2c; /* Gris casi negro */
-            font-weight: 600;
-            /* Tamaño fluido más grande */
-            font-size: clamp(1.8rem, 5vw, 2.5rem); 
+            color: var(--color-dark);
+            font-weight: 500;
+            /* Escala fluida: nunca muy chico, nunca gigante */
+            font-size: clamp(1.8rem, 6vw, 2.5rem); 
             letter-spacing: 1px;
-            margin: 0;
-            /* Superposición estratégica */
-            margin-bottom: -20px; /* Se mete un poco sobre el nombre */
-            position: relative;
-            z-index: 2; /* Queda por encima */
-            text-shadow: 1px 1px 2px rgba(255,255,255,0.6);
+            line-height: 1.2;
+            margin-bottom: 5px; /* Pequeño espacio antes del nombre */
         }
         
-        /* Estilo para "Suleika" - Cursiva grande y verde salvia */
+        /* Nombre: "Suleika" - Fuente Cursiva, Verde, Grande */
         .main-title {
             font-family: 'Great Vibes', cursive;
-            color: #6b8e4e; /* Verde salvia como la referencia */
-            /* Tamaño mucho más grande y fluido */
-            font-size: clamp(5.5rem, 18vw, 8rem); 
-            line-height: 1;
+            color: var(--color-primary);
+            font-weight: 400;
+            /* Escala fluida predominante */
+            font-size: clamp(4.5rem, 15vw, 6.5rem); 
+            line-height: 1.1;
             margin: 0;
-            position: relative;
-            z-index: 1;
-            text-shadow: 2px 2px 5px rgba(255,255,255,0.7);
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
         }
 
-        /* Cursiva general para otros elementos */
-        .cursive-font, .section-title {
+        /* Títulos de secciones (Padres, Padrinos, etc.) */
+        .section-title {
             font-family: 'Great Vibes', cursive;
-            color: #6b8e4e; /* Verde salvia unificado */
-            text-align: center;
+            color: var(--color-primary);
+            font-size: clamp(2rem, 8vw, 2.8rem);
+            margin-bottom: 15px;
+            line-height: 1.2;
         }
-        /* ----------------------------------------- */
 
+        /* --- ELEMENTOS GRÁFICOS --- */
 
-        /* Reproductor de Música - Más transparente */
+        /* Reproductor de Música */
         .music-player {
-            background: rgba(255, 255, 255, 0.6); /* Más transparente */
+            background: rgba(255, 255, 255, 0.7);
             border-radius: 50px;
-            padding: 8px 25px;
+            padding: 8px 20px;
             display: inline-flex;
             align-items: center;
             gap: 15px;
-            box-shadow: 0 4px 10px rgba(107, 142, 78, 0.2);
-            margin-top: 25px;
-            border: 1px solid rgba(255,255,255,0.5);
+            box-shadow: 0 4px 10px rgba(107, 142, 78, 0.15);
+            margin-top: 20px;
+            border: 1px solid rgba(255,255,255,0.6);
         }
         .play-btn {
-            background: #6b8e4e; /* Verde salvia */
+            background: var(--color-primary);
             color: white;
             border: none;
-            width: 35px;
-            height: 35px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -116,115 +120,107 @@
             cursor: pointer;
             transition: 0.3s;
         }
-        .play-btn:hover { transform: scale(1.1); }
 
-        /* Cuenta Regresiva - Más transparente */
+        /* Cuenta Regresiva */
         .countdown-container {
-             background: rgba(255,255,255,0.5) !important; /* Muy transparente */
+             background: rgba(255,255,255,0.6); /* Fondo semitransparente */
              border-radius: 20px; 
-             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-             border: 1px solid rgba(255,255,255,0.3);
+             box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+             margin: 30px 0;
+             padding: 20px;
         }
-
         .countdown-box {
-            background: rgba(107, 142, 78, 0.1); /* Verde muy suave */
-            border-radius: 8px;
-            padding: 10px 8px;
-            margin: 4px;
-            min-width: 65px;
-            border: 1px solid rgba(107, 142, 78, 0.15);
+            /* Sin fondo para limpieza visual, solo el número */
+            padding: 5px 10px;
+            text-align: center;
+            min-width: 60px;
         }
         .countdown-number {
-            font-size: clamp(1.5rem, 5vw, 2rem);
-            font-weight: bold;
-            color: #6b8e4e;
+            font-family: 'Playfair Display', serif; /* Coherencia con títulos */
+            font-size: clamp(1.8rem, 5vw, 2.2rem);
+            font-weight: 600;
+            color: var(--color-dark);
             line-height: 1;
         }
         .countdown-label {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+            color: var(--color-primary);
             margin-top: 5px;
-            color: #4a4a4a;
+            font-weight: 600;
         }
 
-        /* Botones */
+        /* --- TARJETAS DE TEXTO --- */
+        .info-card {
+            background: rgba(255,255,255,0.65); /* Transparencia para ver fondo */
+            margin: 25px 0;
+            padding: 30px 20px;
+            border-radius: 15px;
+            position: relative;
+            text-align: center;
+            /* Borde sutil */
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+        
+        .names-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        /* ICONOS - Unificados en color y escala */
+        .icon-box {
+            font-size: 2rem; /* Escala controlada */
+            color: var(--color-primary); /* Color unificado */
+            margin-bottom: 15px;
+        }
+
+        /* BOTONES - Unificados */
         .btn-custom {
-            background-color: #6b8e4e;
+            background-color: var(--color-primary); /* Todos verdes */
             color: white !important;
-            border-radius: 30px;
-            padding: 14px 35px;
+            border-radius: 50px; /* Más redondeados */
+            padding: 12px 30px;
             border: none;
             transition: all 0.3s;
             margin-top: 15px;
             text-decoration: none;
             display: inline-block;
-            box-shadow: 0 4px 6px rgba(107, 142, 78, 0.3);
-            font-size: 1rem;
+            box-shadow: 0 4px 10px rgba(107, 142, 78, 0.3);
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-weight: 600;
         }
         .btn-custom:hover {
             transform: translateY(-2px);
-            background-color: #536f3c;
-            box-shadow: 0 6px 12px rgba(107, 142, 78, 0.4);
+            background-color: #536f3c; /* Verde un poco más oscuro al pasar mouse */
+            box-shadow: 0 6px 15px rgba(107, 142, 78, 0.4);
         }
 
-        /* Tarjetas de Información - MÁS TRANSPARENTES */
-        .info-card {
-            background: rgba(255,255,255,0.55); /* Transparencia media para leer el texto pero ver el fondo */
-            margin: 30px 0;
-            padding: 35px 25px;
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.4);
-            position: relative;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-        }
-        
-        /* Títulos de sección fluidos */
-        .section-title {
-            font-size: clamp(2rem, 6vw, 2.5rem);
-            margin-bottom: 15px;
-        }
-
-        /* Ajuste de textos generales */
-        p, .names-text, .small {
-             font-size: clamp(0.95rem, 2.5vw, 1.05rem);
-        }
-
-        .names-text {
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 8px;
-        }
-
-        .icon-box {
-            font-size: 2.2rem;
-            color: #bfa15f; /* Dorado */
-            margin-bottom: 20px;
-        }
-
+        /* Separador */
         .divider {
             height: 1px;
-            background: radial-gradient(circle, #6b8e4e 0%, transparent 100%);
-            width: 80%;
-            margin: 25px auto;
-            opacity: 0.5;
+            background: radial-gradient(circle, var(--color-primary) 0%, transparent 100%);
+            width: 70%;
+            margin: 20px auto;
+            opacity: 0.4;
         }
 
-        .fade-in {
-            animation: fadeIn 2s;
-        }
+        /* Animación de entrada */
+        .fade-in { animation: fadeIn 1.5s ease-out; }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-<div class="invitacion-container text-center fade-in">
-
+<div class="invitacion-container fade-in">
     <div class="content-wrapper">
         
         <div class="header-group">
@@ -232,9 +228,9 @@
             <h1 class="main-title">Suleika</h1>
 
             <div class="music-player">
-                <span style="font-size: 0.8rem; letter-spacing: 1px; color: #4a4a4a;">MÚSICA</span>
+                <span style="font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; margin-right: 10px;">Escuchar Música</span>
                 <button class="play-btn" onclick="toggleMusic()" id="musicBtn">
-                    <i class="fas fa-play"></i>
+                    <i class="fas fa-play" style="font-size: 0.9rem;"></i>
                 </button>
             </div>
             <audio id="bgMusic" loop>
@@ -242,35 +238,38 @@
             </audio>
         </div>
 
-
         <div class="info-card">
-            <p class="fst-italic" style="line-height: 1.8;">
+            <p style="font-style: italic; font-size: 1rem;">
                 "Hoy comienza un nuevo capítulo en mi vida... dejo atrás la niñez para abrir las puertas a mis sueños. Mis 15 años llegan llenos de ilusión, alegría y gratitud, y nada será igual sin ti para celebrarlo conmigo."
             </p>
         </div>
 
         <div class="info-card">
             <h3 class="section-title">Mis Padres</h3>
-            <p class="names-text">Ahimara Suleika Guzmán Cárdenas</p>
-            <p class="names-text">Adalberto Ocegueda Guzmán</p>
+            <div class="names-text">Ahimara Suleika Guzmán Cárdenas</div>
+            <div class="names-text">Adalberto Ocegueda Guzmán</div>
             
             <div class="divider"></div>
             
             <h3 class="section-title">Mis Padrinos</h3>
-            <p class="names-text">Marisol Michel Canchola</p>
-            <p class="names-text">Juan Daniel Guzmán Cárdenas</p>
+            <div class="names-text">Marisol Michel Canchola</div>
+            <div class="names-text">Juan Daniel Guzmán Cárdenas</div>
         </div>
 
-        <p class="mt-5 mb-3 text-uppercase fw-bold" style="letter-spacing: 2px; color: #6b8e4e;">Se complacen en invitarles a celebrar los XV</p>
+        <div style="text-align: center; margin: 40px 0;">
+            <p style="text-transform: uppercase; letter-spacing: 2px; color: var(--color-primary); font-weight: 600; font-size: 0.9rem;">
+                Se complacen en invitarles a celebrar los XV
+            </p>
+        </div>
 
-        <div class="my-4 p-4 countdown-container">
-            <div class="d-flex justify-content-center align-items-center mb-3">
-                <span style="font-size: 1.3rem; font-weight: bold; border-top: 2px solid #bfa15f; border-bottom: 2px solid #bfa15f; padding: 5px 25px; color: #6b8e4e; letter-spacing: 2px;">SÁBADO</span>
+        <div class="countdown-container text-center">
+            <div style="border-top: 1px solid var(--color-primary); border-bottom: 1px solid var(--color-primary); display: inline-block; padding: 5px 30px; margin-bottom: 15px;">
+                <span style="font-size: 1.2rem; font-weight: 600; color: var(--color-primary); letter-spacing: 2px;">SÁBADO</span>
             </div>
             
-            <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 12vw, 5rem); margin: 15px 0; color: #2c2c2c; line-height: 1;">07</h2>
-            <h3 class="text-uppercase" style="letter-spacing: 4px; font-size: 1.4rem; color: #8F9779;">Marzo 2026</h3>
-            <p class="fs-4 fw-bold mt-3" style="color: #6b8e4e;">7:00 PM</p>
+            <div style="font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 10vw, 4.5rem); color: var(--color-dark); line-height: 1;">07</div>
+            <div style="text-transform: uppercase; letter-spacing: 3px; font-size: 1.1rem; color: #777; margin-bottom: 10px;">Marzo 2026</div>
+            <div style="color: var(--color-primary); font-weight: 700; font-size: 1.2rem;">7:00 PM</div>
             
             <div class="d-flex justify-content-center mt-4 flex-wrap" id="countdown">
                 <div class="countdown-box">
@@ -295,17 +294,19 @@
         <div class="info-card">
             <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
             <h3 class="section-title">Recepción</h3>
-            <p class="fs-4 fw-bold mb-4">Salón Imperial</p>
-            <a href="http://googleusercontent.com/maps.google.com/0" target="_blank" class="btn-custom">
+            <p class="names-text" style="font-size: 1.3rem;">Salón Imperial</p>
+            <a href="https://maps.app.goo.gl/PERL6ZF839y24bPz5?g_st=am" target="_blank" class="btn-custom">
                 Ver Ubicación
             </a>
         </div>
 
         <div class="info-card">
-            <div class="icon-box"><i class="fas fa-user-tie"></i> <i class="fas fa-female"></i></div>
+            <div class="icon-box">
+                <i class="fas fa-user-tie"></i> <i class="fas fa-female"></i>
+            </div>
             <h3 class="section-title">Vestimenta</h3>
-            <p class="fs-4 fw-bold text-uppercase mb-3">Formal</p>
-            <p class="text-muted fst-italic">
+            <p style="font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Formal</p>
+            <p style="font-size: 0.9rem; margin-top: 10px;">
                 Amablemente, el color verde únicamente para la quinceañera.
             </p>
         </div>
@@ -313,22 +314,26 @@
         <div class="info-card">
             <div class="icon-box"><i class="fas fa-envelope-open-text"></i></div>
             <h3 class="section-title">Lluvia de Sobres</h3>
-            <p>Tu presencia en este día es muy importante, tu obsequio será un detalle significativo, agradezco tu detalle en efectivo, que será recibido en mi lluvia de sobres.</p>
+            <p style="font-size: 0.95rem;">
+                Tu presencia en este día es muy importante, tu obsequio será un detalle significativo. Agradezco tu detalle en efectivo, que será recibido en mi lluvia de sobres.
+            </p>
         </div>
 
-        <div class="mb-5">
-            <h3 class="section-title" style="font-size: 2.5rem;">Confirmar Asistencia</h3>
-            <p class="mb-4">Por favor, confirma tu asistencia.</p>
-            <a href="https://wa.me/523222084527?text=Hola,%20confirmo%20mi%20asistencia%20a%20los%2015%20de%20Suleika" target="_blank" class="btn-custom" style="background-color: #25D366; font-size: 1.1rem;">
+        <div class="info-card" style="background: rgba(255,255,255,0.8);"> <h3 class="section-title">Confirmar Asistencia</h3>
+            <p>Por favor, confirma tu asistencia.</p>
+            <a href="https://wa.me/523222084527?text=Hola,%20confirmo%20mi%20asistencia%20a%20los%2015%20de%20Suleika" target="_blank" class="btn-custom">
                 <i class="fab fa-whatsapp"></i> Enviar WhatsApp
             </a>
         </div>
 
-        <p class="cursive-font mb-5" style="font-size: clamp(3rem, 8vw, 4rem);">¡Te esperamos!</p>
+        <div style="text-align: center; margin-top: 50px;">
+            <p class="main-title" style="font-size: clamp(2.5rem, 8vw, 3.5rem);">¡Te esperamos!</p>
+        </div>
     </div>
 </div>
 
 <script>
+    // Configuración Fecha: 7 Marzo 2026, 7:00 PM
     const eventDate = new Date(2026, 2, 7, 19, 0, 0).getTime();
 
     const countdownInterval = setInterval(function() {
@@ -347,10 +352,11 @@
 
         if (distance < 0) {
             clearInterval(countdownInterval);
-            document.getElementById("countdown").innerHTML = "¡Es hoy!";
+            document.getElementById("countdown").innerHTML = "<div style='width:100%; font-size:1.5rem; color:#6b8e4e'>¡Es hoy!</div>";
         }
     }, 1000);
 
+    // Música
     var music = document.getElementById("bgMusic");
     var btn = document.getElementById("musicBtn");
     var icon = btn.querySelector("i");
@@ -364,10 +370,7 @@
         } else {
             var playPromise = music.play();
             if (playPromise !== undefined) {
-                playPromise.then(_ => {
-                }).catch(error => {
-                    console.log("Auto-play prevenido por el navegador.");
-                });
+                playPromise.then(_ => {}).catch(error => console.log("Auto-play blocked"));
             }
             icon.classList.remove("fa-play");
             icon.classList.add("fa-pause");
