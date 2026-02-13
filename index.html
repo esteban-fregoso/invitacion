@@ -6,99 +6,105 @@
     <title>XV Años Suleika</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
-        /* ESTILOS DE LA TEMÁTICA */
+        /* ESTILOS GENERALES */
         body {
             background-color: #f4f7f6;
             font-family: 'Montserrat', sans-serif;
             color: #4a4a4a;
-            line-height: 1.6; /* Mejor lectura general */
+            line-height: 1.6;
         }
         
-        /* Contenedor principal para celular */
+        /* --- FONDO Y TRANSPARENCIAS --- */
         .invitacion-container {
             max-width: 450px;
             margin: 0 auto;
             
-            /* Fondo con capa blanca semitransparente */
+            /* CAMBIO CLAVE: La capa blanca ahora es muy tenue (0.1 de opacidad)
+               para que el fondo de Tiana se vea clarito como en la referencia.
+            */
             background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), 
+                linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), 
                 url('https://drive.google.com/thumbnail?id=1aMeMr_qcQWX88VyJlFzJS5pOx1iah0dW&sz=w1000');
             
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
             min-height: 100vh;
             position: relative;
-            /* Padding inferior para que el último texto no pegue al borde */
             padding-bottom: 80px; 
             overflow-x: hidden;
         }
 
-        /* Wrapper del contenido con márgenes seguros a los lados */
         .content-wrapper {
-            padding: 40px 25px 20px 25px; /* Más espacio arriba y a los lados */
+            padding: 60px 25px 20px 25px;
         }
 
-        /* --- NUEVA SECCIÓN DE TÍTULOS MEJORADA --- */
+        /* --- NUEVA TIPOGRAFÍA Y COMPOSICIÓN (ESTILO NURIA) --- */
         
-        /* Agrupamos el encabezado para controlar el espacio entre elementos */
         .header-group {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px; /* Espacio limpio entre Mis 15, Nombre y Música */
-            margin-bottom: 35px; /* Espacio antes de la primera tarjeta */
+            margin-bottom: 40px;
+            position: relative;
         }
 
-        /* Tipografía Cursiva General */
-        h1, h2, .cursive-font {
-            font-family: 'Great Vibes', cursive;
-            color: #556B2F;
-            text-align: center;
+        /* Estilo para "Mis 15 Años" - Serif elegante y oscuro */
+        .sub-title {
+            font-family: 'Playfair Display', serif;
+            color: #2c2c2c; /* Gris casi negro */
+            font-weight: 600;
+            /* Tamaño fluido más grande */
+            font-size: clamp(1.8rem, 5vw, 2.5rem); 
+            letter-spacing: 1px;
+            margin: 0;
+            /* Superposición estratégica */
+            margin-bottom: -20px; /* Se mete un poco sobre el nombre */
+            position: relative;
+            z-index: 2; /* Queda por encima */
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.6);
         }
         
-        /* Título Principal (Nombre) con TAMAÑO FLUIDO (clamp) */
+        /* Estilo para "Suleika" - Cursiva grande y verde salvia */
         .main-title {
-            /* Se adapta: Mínimo 3.5rem, Ideal 10% del ancho, Máximo 5rem */
-            font-size: clamp(3.5rem, 10vw, 5rem); 
-            line-height: 1.1; /* Un poco más de aire entre líneas para que no se encimen las letras */
-            margin: 0; /* Quitamos márgenes negativos problemáticos */
-            text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
-            padding-bottom: 10px; /* Espacio extra sutil abajo del nombre */
+            font-family: 'Great Vibes', cursive;
+            color: #6b8e4e; /* Verde salvia como la referencia */
+            /* Tamaño mucho más grande y fluido */
+            font-size: clamp(5.5rem, 18vw, 8rem); 
+            line-height: 1;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 5px rgba(255,255,255,0.7);
         }
 
-        /* Subtítulo (Mis 15 Años) con TAMAÑO FLUIDO */
-        .sub-title {
-            color: #8F9779;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 600;
-            /* Se adapta suavemente al ancho de pantalla */
-            font-size: clamp(1rem, 3vw, 1.3rem); 
-            margin: 0; /* Reseteamos márgenes */
+        /* Cursiva general para otros elementos */
+        .cursive-font, .section-title {
+            font-family: 'Great Vibes', cursive;
+            color: #6b8e4e; /* Verde salvia unificado */
+            text-align: center;
         }
         /* ----------------------------------------- */
 
 
-        /* Reproductor de Música */
+        /* Reproductor de Música - Más transparente */
         .music-player {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.6); /* Más transparente */
             border-radius: 50px;
             padding: 8px 25px;
             display: inline-flex;
             align-items: center;
             gap: 15px;
-            box-shadow: 0 4px 10px rgba(85, 107, 47, 0.15);
-            margin-top: 10px; /* Un poco de espacio extra arriba del reproductor */
-            border: 1px solid #e0e0e0;
+            box-shadow: 0 4px 10px rgba(107, 142, 78, 0.2);
+            margin-top: 25px;
+            border: 1px solid rgba(255,255,255,0.5);
         }
         .play-btn {
-            background: #556B2F;
+            background: #6b8e4e; /* Verde salvia */
             color: white;
             border: none;
             width: 35px;
@@ -112,20 +118,26 @@
         }
         .play-btn:hover { transform: scale(1.1); }
 
-        /* Cuenta Regresiva */
+        /* Cuenta Regresiva - Más transparente */
+        .countdown-container {
+             background: rgba(255,255,255,0.5) !important; /* Muy transparente */
+             border-radius: 20px; 
+             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+             border: 1px solid rgba(255,255,255,0.3);
+        }
+
         .countdown-box {
-            background: rgba(85, 107, 47, 0.08);
+            background: rgba(107, 142, 78, 0.1); /* Verde muy suave */
             border-radius: 8px;
-            padding: 10px 8px; /* Un poco más de padding vertical */
+            padding: 10px 8px;
             margin: 4px;
             min-width: 65px;
-            border: 1px solid rgba(85, 107, 47, 0.1);
+            border: 1px solid rgba(107, 142, 78, 0.15);
         }
         .countdown-number {
-            /* Hacemos el número también un poco fluido */
             font-size: clamp(1.5rem, 5vw, 2rem);
             font-weight: bold;
-            color: #556B2F;
+            color: #6b8e4e;
             line-height: 1;
         }
         .countdown-label {
@@ -133,49 +145,49 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-top: 5px;
+            color: #4a4a4a;
         }
 
         /* Botones */
         .btn-custom {
-            background-color: #556B2F;
+            background-color: #6b8e4e;
             color: white !important;
             border-radius: 30px;
-            padding: 14px 35px; /* Botones un poco más altos para mejor toque */
+            padding: 14px 35px;
             border: none;
             transition: all 0.3s;
             margin-top: 15px;
             text-decoration: none;
             display: inline-block;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(107, 142, 78, 0.3);
             font-size: 1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
         .btn-custom:hover {
             transform: translateY(-2px);
-            background-color: #3e4f22;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            background-color: #536f3c;
+            box-shadow: 0 6px 12px rgba(107, 142, 78, 0.4);
         }
 
-        /* Tarjetas de Información con mejor espaciado interno */
+        /* Tarjetas de Información - MÁS TRANSPARENTES */
         .info-card {
-            background: rgba(255,255,255,0.95);
-            margin: 30px 0; /* Más espacio entre tarjetas verticalmente */
-            padding: 35px 25px; /* Más espacio interno para que el texto respire */
+            background: rgba(255,255,255,0.55); /* Transparencia media para leer el texto pero ver el fondo */
+            margin: 30px 0;
+            padding: 35px 25px;
             border-radius: 20px;
-            border: 1px solid #f0f0f0;
+            border: 1px solid rgba(255,255,255,0.4);
             position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
         }
         
         /* Títulos de sección fluidos */
         .section-title {
-            font-family: 'Great Vibes', cursive;
             font-size: clamp(2rem, 6vw, 2.5rem);
-            color: #556B2F;
             margin-bottom: 15px;
         }
 
-        /* Ajuste de textos generales para que no sean muy pequeños en móviles chicos */
+        /* Ajuste de textos generales */
         p, .names-text, .small {
              font-size: clamp(0.95rem, 2.5vw, 1.05rem);
         }
@@ -188,16 +200,16 @@
 
         .icon-box {
             font-size: 2.2rem;
-            color: #bfa15f;
+            color: #bfa15f; /* Dorado */
             margin-bottom: 20px;
         }
 
         .divider {
             height: 1px;
-            background: radial-gradient(circle, #556B2F 0%, transparent 100%);
+            background: radial-gradient(circle, #6b8e4e 0%, transparent 100%);
             width: 80%;
             margin: 25px auto;
-            opacity: 0.4;
+            opacity: 0.5;
         }
 
         .fade-in {
@@ -220,7 +232,7 @@
             <h1 class="main-title">Suleika</h1>
 
             <div class="music-player">
-                <span style="font-size: 0.8rem; letter-spacing: 1px;">MÚSICA</span>
+                <span style="font-size: 0.8rem; letter-spacing: 1px; color: #4a4a4a;">MÚSICA</span>
                 <button class="play-btn" onclick="toggleMusic()" id="musicBtn">
                     <i class="fas fa-play"></i>
                 </button>
@@ -229,6 +241,8 @@
                 <source src="music.mp3" type="audio/mpeg">
             </audio>
         </div>
+
+
         <div class="info-card">
             <p class="fst-italic" style="line-height: 1.8;">
                 "Hoy comienza un nuevo capítulo en mi vida... dejo atrás la niñez para abrir las puertas a mis sueños. Mis 15 años llegan llenos de ilusión, alegría y gratitud, y nada será igual sin ti para celebrarlo conmigo."
@@ -247,16 +261,16 @@
             <p class="names-text">Juan Daniel Guzmán Cárdenas</p>
         </div>
 
-        <p class="mt-5 mb-3 text-uppercase fw-bold" style="letter-spacing: 2px; color: #556B2F;">Se complacen en invitarles a celebrar los XV</p>
+        <p class="mt-5 mb-3 text-uppercase fw-bold" style="letter-spacing: 2px; color: #6b8e4e;">Se complacen en invitarles a celebrar los XV</p>
 
-        <div class="my-4 p-4" style="background: rgba(255,255,255,0.7); border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+        <div class="my-4 p-4 countdown-container">
             <div class="d-flex justify-content-center align-items-center mb-3">
-                <span style="font-size: 1.3rem; font-weight: bold; border-top: 2px solid #bfa15f; border-bottom: 2px solid #bfa15f; padding: 5px 25px; color: #556B2F; letter-spacing: 2px;">SÁBADO</span>
+                <span style="font-size: 1.3rem; font-weight: bold; border-top: 2px solid #bfa15f; border-bottom: 2px solid #bfa15f; padding: 5px 25px; color: #6b8e4e; letter-spacing: 2px;">SÁBADO</span>
             </div>
             
-            <h2 style="font-size: clamp(4rem, 12vw, 5rem); margin: 15px 0; color: #333; line-height: 1;">07</h2>
+            <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 12vw, 5rem); margin: 15px 0; color: #2c2c2c; line-height: 1;">07</h2>
             <h3 class="text-uppercase" style="letter-spacing: 4px; font-size: 1.4rem; color: #8F9779;">Marzo 2026</h3>
-            <p class="fs-4 fw-bold mt-3" style="color: #556B2F;">7:00 PM</p>
+            <p class="fs-4 fw-bold mt-3" style="color: #6b8e4e;">7:00 PM</p>
             
             <div class="d-flex justify-content-center mt-4 flex-wrap" id="countdown">
                 <div class="countdown-box">
@@ -282,7 +296,7 @@
             <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
             <h3 class="section-title">Recepción</h3>
             <p class="fs-4 fw-bold mb-4">Salón Imperial</p>
-            <a href="https://maps.app.goo.gl/PERL6ZF839y24bPz5?g_st=am" target="_blank" class="btn-custom">
+            <a href="http://googleusercontent.com/maps.google.com/0" target="_blank" class="btn-custom">
                 Ver Ubicación
             </a>
         </div>
