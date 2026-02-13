@@ -14,6 +14,7 @@
             background-color: #f4f7f6;
             font-family: 'Montserrat', sans-serif;
             color: #4a4a4a;
+            line-height: 1.6; /* Mejor lectura general */
         }
         
         /* Contenedor principal para celular */
@@ -21,7 +22,7 @@
             max-width: 450px;
             margin: 0 auto;
             
-            /* Capa semitransparente + Imagen de fondo con enlace Thumbnail seguro */
+            /* Fondo con capa blanca semitransparente */
             background-image: 
                 linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), 
                 url('https://drive.google.com/thumbnail?id=1aMeMr_qcQWX88VyJlFzJS5pOx1iah0dW&sz=w1000');
@@ -33,33 +34,56 @@
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
             min-height: 100vh;
             position: relative;
-            padding-bottom: 60px;
+            /* Padding inferior para que el último texto no pegue al borde */
+            padding-bottom: 80px; 
             overflow-x: hidden;
         }
 
-        /* Tipografía Cursiva */
+        /* Wrapper del contenido con márgenes seguros a los lados */
+        .content-wrapper {
+            padding: 40px 25px 20px 25px; /* Más espacio arriba y a los lados */
+        }
+
+        /* --- NUEVA SECCIÓN DE TÍTULOS MEJORADA --- */
+        
+        /* Agrupamos el encabezado para controlar el espacio entre elementos */
+        .header-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px; /* Espacio limpio entre Mis 15, Nombre y Música */
+            margin-bottom: 35px; /* Espacio antes de la primera tarjeta */
+        }
+
+        /* Tipografía Cursiva General */
         h1, h2, .cursive-font {
             font-family: 'Great Vibes', cursive;
             color: #556B2F;
+            text-align: center;
         }
         
+        /* Título Principal (Nombre) con TAMAÑO FLUIDO (clamp) */
         .main-title {
-            font-size: 4rem;
-            text-align: center;
-            margin-top: -10px;
-            margin-bottom: 20px;
-            line-height: 1;
+            /* Se adapta: Mínimo 3.5rem, Ideal 10% del ancho, Máximo 5rem */
+            font-size: clamp(3.5rem, 10vw, 5rem); 
+            line-height: 1.1; /* Un poco más de aire entre líneas para que no se encimen las letras */
+            margin: 0; /* Quitamos márgenes negativos problemáticos */
             text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+            padding-bottom: 10px; /* Espacio extra sutil abajo del nombre */
         }
 
+        /* Subtítulo (Mis 15 Años) con TAMAÑO FLUIDO */
         .sub-title {
             color: #8F9779;
             text-transform: uppercase;
             letter-spacing: 3px;
             font-weight: 600;
-            font-size: 1.2rem;
-            margin-top: 20px;
+            /* Se adapta suavemente al ancho de pantalla */
+            font-size: clamp(1rem, 3vw, 1.3rem); 
+            margin: 0; /* Reseteamos márgenes */
         }
+        /* ----------------------------------------- */
+
 
         /* Reproductor de Música */
         .music-player {
@@ -70,7 +94,7 @@
             align-items: center;
             gap: 15px;
             box-shadow: 0 4px 10px rgba(85, 107, 47, 0.15);
-            margin: 15px 0;
+            margin-top: 10px; /* Un poco de espacio extra arriba del reproductor */
             border: 1px solid #e0e0e0;
         }
         .play-btn {
@@ -92,21 +116,23 @@
         .countdown-box {
             background: rgba(85, 107, 47, 0.08);
             border-radius: 8px;
-            padding: 8px;
+            padding: 10px 8px; /* Un poco más de padding vertical */
             margin: 4px;
             min-width: 65px;
             border: 1px solid rgba(85, 107, 47, 0.1);
         }
         .countdown-number {
-            font-size: 1.8rem;
+            /* Hacemos el número también un poco fluido */
+            font-size: clamp(1.5rem, 5vw, 2rem);
             font-weight: bold;
             color: #556B2F;
             line-height: 1;
         }
         .countdown-label {
-            font-size: 0.65rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+            margin-top: 5px;
         }
 
         /* Botones */
@@ -114,14 +140,14 @@
             background-color: #556B2F;
             color: white !important;
             border-radius: 30px;
-            padding: 12px 35px;
+            padding: 14px 35px; /* Botones un poco más altos para mejor toque */
             border: none;
             transition: all 0.3s;
             margin-top: 15px;
             text-decoration: none;
             display: inline-block;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            font-size: 0.9rem;
+            font-size: 1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -131,41 +157,46 @@
             box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
 
-        /* Tarjetas de Información */
+        /* Tarjetas de Información con mejor espaciado interno */
         .info-card {
             background: rgba(255,255,255,0.95);
-            margin: 25px 15px;
-            padding: 30px 20px;
+            margin: 30px 0; /* Más espacio entre tarjetas verticalmente */
+            padding: 35px 25px; /* Más espacio interno para que el texto respire */
             border-radius: 20px;
             border: 1px solid #f0f0f0;
             position: relative;
         }
         
+        /* Títulos de sección fluidos */
         .section-title {
             font-family: 'Great Vibes', cursive;
-            font-size: 2.2rem;
+            font-size: clamp(2rem, 6vw, 2.5rem);
             color: #556B2F;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* Ajuste de textos generales para que no sean muy pequeños en móviles chicos */
+        p, .names-text, .small {
+             font-size: clamp(0.95rem, 2.5vw, 1.05rem);
         }
 
         .names-text {
-            font-size: 1.1rem;
             font-weight: 600;
             color: #333;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
         .icon-box {
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: #bfa15f;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .divider {
             height: 1px;
             background: radial-gradient(circle, #556B2F 0%, transparent 100%);
             width: 80%;
-            margin: 20px auto;
+            margin: 25px auto;
             opacity: 0.4;
         }
 
@@ -182,21 +213,22 @@
 
 <div class="invitacion-container text-center fade-in">
 
-    <div class="content-wrapper p-3 pt-5">
-        <h2 class="sub-title">Mis 15 Años</h2>
-        <h1 class="main-title">Suleika</h1>
-
-        <div class="music-player">
-            <span style="font-size: 0.8rem; letter-spacing: 1px;">MÚSICA</span>
-            <button class="play-btn" onclick="toggleMusic()" id="musicBtn">
-                <i class="fas fa-play"></i>
-            </button>
-        </div>
+    <div class="content-wrapper">
         
-        <audio id="bgMusic" loop>
-            <source src="music.mp3" type="audio/mpeg">
-        </audio>
+        <div class="header-group">
+            <h2 class="sub-title">Mis 15 Años</h2>
+            <h1 class="main-title">Suleika</h1>
 
+            <div class="music-player">
+                <span style="font-size: 0.8rem; letter-spacing: 1px;">MÚSICA</span>
+                <button class="play-btn" onclick="toggleMusic()" id="musicBtn">
+                    <i class="fas fa-play"></i>
+                </button>
+            </div>
+            <audio id="bgMusic" loop>
+                <source src="music.mp3" type="audio/mpeg">
+            </audio>
+        </div>
         <div class="info-card">
             <p class="fst-italic" style="line-height: 1.8;">
                 "Hoy comienza un nuevo capítulo en mi vida... dejo atrás la niñez para abrir las puertas a mis sueños. Mis 15 años llegan llenos de ilusión, alegría y gratitud, y nada será igual sin ti para celebrarlo conmigo."
@@ -215,18 +247,18 @@
             <p class="names-text">Juan Daniel Guzmán Cárdenas</p>
         </div>
 
-        <p class="mt-4 mb-2 text-uppercase" style="letter-spacing: 2px;">Se complacen en invitarles a celebrar los XV</p>
+        <p class="mt-5 mb-3 text-uppercase fw-bold" style="letter-spacing: 2px; color: #556B2F;">Se complacen en invitarles a celebrar los XV</p>
 
-        <div class="my-4 p-3" style="background: rgba(255,255,255,0.6); border-radius: 15px;">
-            <div class="d-flex justify-content-center align-items-center mb-2">
-                <span style="font-size: 1.2rem; font-weight: bold; border-top: 1px solid #556B2F; border-bottom: 1px solid #556B2F; padding: 5px 20px;">SÁBADO</span>
+        <div class="my-4 p-4" style="background: rgba(255,255,255,0.7); border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+            <div class="d-flex justify-content-center align-items-center mb-3">
+                <span style="font-size: 1.3rem; font-weight: bold; border-top: 2px solid #bfa15f; border-bottom: 2px solid #bfa15f; padding: 5px 25px; color: #556B2F; letter-spacing: 2px;">SÁBADO</span>
             </div>
             
-            <h2 style="font-size: 4rem; margin: 10px 0; color: #333;">07</h2>
-            <h3 class="text-uppercase" style="letter-spacing: 3px; font-size: 1.5rem;">Marzo 2026</h3>
-            <p class="fw-bold mt-2">7:00 PM</p>
+            <h2 style="font-size: clamp(4rem, 12vw, 5rem); margin: 15px 0; color: #333; line-height: 1;">07</h2>
+            <h3 class="text-uppercase" style="letter-spacing: 4px; font-size: 1.4rem; color: #8F9779;">Marzo 2026</h3>
+            <p class="fs-4 fw-bold mt-3" style="color: #556B2F;">7:00 PM</p>
             
-            <div class="d-flex justify-content-center mt-4" id="countdown">
+            <div class="d-flex justify-content-center mt-4 flex-wrap" id="countdown">
                 <div class="countdown-box">
                     <div id="days" class="countdown-number">00</div>
                     <div class="countdown-label">Días</div>
@@ -249,7 +281,7 @@
         <div class="info-card">
             <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
             <h3 class="section-title">Recepción</h3>
-            <p class="fs-4 fw-bold">Salón Imperial</p>
+            <p class="fs-4 fw-bold mb-4">Salón Imperial</p>
             <a href="https://maps.app.goo.gl/PERL6ZF839y24bPz5?g_st=am" target="_blank" class="btn-custom">
                 Ver Ubicación
             </a>
@@ -258,8 +290,8 @@
         <div class="info-card">
             <div class="icon-box"><i class="fas fa-user-tie"></i> <i class="fas fa-female"></i></div>
             <h3 class="section-title">Vestimenta</h3>
-            <p class="fs-5 fw-bold text-uppercase">Formal</p>
-            <p class="small text-muted mt-2">
+            <p class="fs-4 fw-bold text-uppercase mb-3">Formal</p>
+            <p class="text-muted fst-italic">
                 Amablemente, el color verde únicamente para la quinceañera.
             </p>
         </div>
@@ -270,15 +302,15 @@
             <p>Tu presencia en este día es muy importante, tu obsequio será un detalle significativo, agradezco tu detalle en efectivo, que será recibido en mi lluvia de sobres.</p>
         </div>
 
-        <div class="mb-5 pb-5">
-            <h3 class="section-title">Confirmar Asistencia</h3>
-            <p>Por favor, confirma tu asistencia.</p>
-            <a href="https://wa.me/523222084527?text=Hola,%20confirmo%20mi%20asistencia%20a%20los%2015%20de%20Suleika" target="_blank" class="btn-custom" style="background-color: #25D366;">
+        <div class="mb-5">
+            <h3 class="section-title" style="font-size: 2.5rem;">Confirmar Asistencia</h3>
+            <p class="mb-4">Por favor, confirma tu asistencia.</p>
+            <a href="https://wa.me/523222084527?text=Hola,%20confirmo%20mi%20asistencia%20a%20los%2015%20de%20Suleika" target="_blank" class="btn-custom" style="background-color: #25D366; font-size: 1.1rem;">
                 <i class="fab fa-whatsapp"></i> Enviar WhatsApp
             </a>
         </div>
 
-        <p class="cursive-font fs-1 mb-5">¡Te esperamos!</p>
+        <p class="cursive-font mb-5" style="font-size: clamp(3rem, 8vw, 4rem);">¡Te esperamos!</p>
     </div>
 </div>
 
