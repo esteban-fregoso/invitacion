@@ -16,15 +16,15 @@
             color: #4a4a4a;
         }
         
-        /* Contenedor principal para celular (CORREGIDO ENLACE DE DRIVE) */
+        /* Contenedor principal para celular (FONDO ACTUALIZADO) */
         .invitacion-container {
             max-width: 450px;
             margin: 0 auto;
             
-            /* Capa semitransparente + Imagen de fondo con enlace Thumbnail seguro */
+            /* Capa semitransparente + Nueva Imagen de fondo */
             background-image: 
                 linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), 
-                url('https://drive.google.com/thumbnail?id=1aMeMr_qcQWX88VyJlFzJS5pOx1iah0dW&sz=w1000');
+                url('https://drive.google.com/thumbnail?id=1Xq8aNLl1zs_jKj6r_glX_PI5_7OiT9Hr&sz=w1000');
             
             background-size: cover;
             background-position: center;
@@ -46,7 +46,7 @@
         .main-title {
             font-size: 4rem;
             text-align: center;
-            margin-top: -20px;
+            margin-top: -10px; /* Ajustado al quitar la imagen */
             margin-bottom: 20px;
             line-height: 1;
             text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
@@ -58,24 +58,7 @@
             letter-spacing: 3px;
             font-weight: 600;
             font-size: 1.2rem;
-            margin-top: 15px;
-        }
-
-        /* Imagen Principal desde Drive */
-        .hero-img-container {
-            width: 100%;
-            height: auto;
-            position: relative;
-            min-height: 200px; /* Previene que colapse si tarda en cargar */
-        }
-        
-        .hero-img {
-            width: 100%;
-            display: block;
-            border-bottom-left-radius: 50% 15%;
-            border-bottom-right-radius: 50% 15%;
-            mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+            margin-top: 30px; /* Más margen superior al no haber imagen */
         }
 
         /* Reproductor de Música */
@@ -199,10 +182,6 @@
 
 <div class="invitacion-container text-center fade-in">
     
-    <div class="hero-img-container">
-        <img src="https://drive.google.com/thumbnail?id=1Q0xuSIqNBd3j5SKPd8dZ2BeakiTF-YSl&sz=w1000" alt="Suleika" class="hero-img">
-    </div>
-
     <div class="content-wrapper p-3">
         <h2 class="sub-title">Mis 15 Años</h2>
         <h1 class="main-title">Suleika</h1>
