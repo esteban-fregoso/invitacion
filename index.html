@@ -6,32 +6,32 @@
     <title>XV Años Suleika</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;600&family=Paprika&display=swap" rel="stylesheet">
 
     <style>
         /* --- CONFIGURACIÓN GENERAL --- */
         body {
             background-color: #f4f7f6;
             font-family: 'Montserrat', sans-serif;
-            color: #555; /* Texto gris oscuro suave para lectura */
+            color: #555;
             line-height: 1.6;
             margin: 0;
         }
 
         /* --- CONTENEDOR PRINCIPAL --- */
         .invitacion-container {
-            max-width: 480px; /* Ancho estándar de móvil moderno */
+            max-width: 480px;
             margin: 0 auto;
             
-            /* AQUÍ ESTÁ TU NUEVO FONDO */
-            /* Capa blanca muy tenue (15%) + Tu nueva imagen */
+            /* Fondo con el ID que proporcionaste anteriormente */
             background-image: 
                 linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)), 
                 url('https://drive.google.com/thumbnail?id=155l-ltMkK8IbZaTitWrqI48LxyZWFsfR&sz=w1000');
             
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Efecto Parallax */
+            background-attachment: fixed;
             box-shadow: 0 0 25px rgba(0,0,0,0.15);
             min-height: 100vh;
             position: relative;
@@ -45,9 +45,8 @@
 
         /* --- PALETA DE COLORES --- */
         :root {
-            --color-primary: #6b8e4e; /* Verde Salvia (Como en la referencia) */
-            --color-dark: #2c2c2c;    /* Gris casi negro para títulos */
-            --color-light: #ffffff;
+            --color-primary: #6b8e4e; /* Verde Salvia */
+            --color-dark: #2c2c2c;    /* Gris oscuro */
         }
 
         /* --- TIPOGRAFÍA Y ENCABEZADOS --- */
@@ -61,31 +60,32 @@
             justify-content: center;
         }
 
-        /* Título: "Mis 15 Años" - Fuente Serif, Oscura, Elegante */
+        /* Título: "Mis 15 Años" - AHORA CON FUENTE PAPRIKA */
         .sub-title {
-            font-family: 'Playfair Display', serif;
+            font-family: "Paprika", system-ui; /* Cambio aplicado */
+            font-weight: 400;
+            font-style: normal;
             color: var(--color-dark);
-            font-weight: 500;
-            /* Escala fluida: nunca muy chico, nunca gigante */
+            
+            /* Escala fluida mantenida */
             font-size: clamp(1.8rem, 6vw, 2.5rem); 
             letter-spacing: 1px;
             line-height: 1.2;
-            margin-bottom: 5px; /* Pequeño espacio antes del nombre */
+            margin-bottom: 5px;
         }
         
-        /* Nombre: "Suleika" - Fuente Cursiva, Verde, Grande */
+        /* Nombre: "Suleika" */
         .main-title {
             font-family: 'Great Vibes', cursive;
             color: var(--color-primary);
             font-weight: 400;
-            /* Escala fluida predominante */
             font-size: clamp(4.5rem, 15vw, 6.5rem); 
             line-height: 1.1;
             margin: 0;
             text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
         }
 
-        /* Títulos de secciones (Padres, Padrinos, etc.) */
+        /* Títulos de secciones */
         .section-title {
             font-family: 'Great Vibes', cursive;
             color: var(--color-primary);
@@ -124,20 +124,19 @@
 
         /* Cuenta Regresiva */
         .countdown-container {
-             background: rgba(255,255,255,0.6); /* Fondo semitransparente */
+             background: rgba(255,255,255,0.6);
              border-radius: 20px; 
              box-shadow: 0 5px 15px rgba(0,0,0,0.03);
              margin: 30px 0;
              padding: 20px;
         }
         .countdown-box {
-            /* Sin fondo para limpieza visual, solo el número */
             padding: 5px 10px;
             text-align: center;
             min-width: 60px;
         }
         .countdown-number {
-            font-family: 'Playfair Display', serif; /* Coherencia con títulos */
+            font-family: 'Playfair Display', serif; 
             font-size: clamp(1.8rem, 5vw, 2.2rem);
             font-weight: 600;
             color: var(--color-dark);
@@ -154,13 +153,12 @@
 
         /* --- TARJETAS DE TEXTO --- */
         .info-card {
-            background: rgba(255,255,255,0.65); /* Transparencia para ver fondo */
+            background: rgba(255,255,255,0.65);
             margin: 25px 0;
             padding: 30px 20px;
             border-radius: 15px;
             position: relative;
             text-align: center;
-            /* Borde sutil */
             border: 1px solid rgba(255,255,255,0.5);
         }
         
@@ -172,18 +170,18 @@
             margin-bottom: 5px;
         }
 
-        /* ICONOS - Unificados en color y escala */
+        /* ICONOS */
         .icon-box {
-            font-size: 2rem; /* Escala controlada */
-            color: var(--color-primary); /* Color unificado */
+            font-size: 2rem;
+            color: var(--color-primary);
             margin-bottom: 15px;
         }
 
-        /* BOTONES - Unificados */
+        /* BOTONES */
         .btn-custom {
-            background-color: var(--color-primary); /* Todos verdes */
+            background-color: var(--color-primary);
             color: white !important;
-            border-radius: 50px; /* Más redondeados */
+            border-radius: 50px;
             padding: 12px 30px;
             border: none;
             transition: all 0.3s;
@@ -198,7 +196,7 @@
         }
         .btn-custom:hover {
             transform: translateY(-2px);
-            background-color: #536f3c; /* Verde un poco más oscuro al pasar mouse */
+            background-color: #536f3c;
             box-shadow: 0 6px 15px rgba(107, 142, 78, 0.4);
         }
 
@@ -211,7 +209,6 @@
             opacity: 0.4;
         }
 
-        /* Animación de entrada */
         .fade-in { animation: fadeIn 1.5s ease-out; }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(30px); }
@@ -320,7 +317,8 @@
             </p>
         </div>
 
-        <div class="info-card" style="background: rgba(255,255,255,0.8);"> <h3 class="section-title">Confirmar Asistencia</h3>
+        <div class="info-card" style="background: rgba(255,255,255,0.8);">
+            <h3 class="section-title">Confirmar Asistencia</h3>
             <p>Por favor, confirma tu asistencia.</p>
             <a href="https://wa.me/523222084527?text=Hola,%20confirmo%20mi%20asistencia%20a%20los%2015%20de%20Suleika" target="_blank" class="btn-custom">
                 <i class="fab fa-whatsapp"></i> Enviar WhatsApp
@@ -334,7 +332,7 @@
 </div>
 
 <script>
-    // Configuración Fecha: 7 Marzo 2026, 7:00 PM
+    // Fecha: 7 Marzo 2026, 7:00 PM
     const eventDate = new Date(2026, 2, 7, 19, 0, 0).getTime();
 
     const countdownInterval = setInterval(function() {
@@ -357,7 +355,7 @@
         }
     }, 1000);
 
-    // Música
+    // Reproductor de Música
     var music = document.getElementById("bgMusic");
     var btn = document.getElementById("musicBtn");
     var icon = btn.querySelector("i");
