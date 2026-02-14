@@ -6,79 +6,114 @@
     <title>XV Años Suleika</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;600&family=Paprika&display=swap" rel="stylesheet">
 
     <style>
-        /* ESTILOS DE LA TEMÁTICA */
+        /* --- CONFIGURACIÓN GENERAL --- */
         body {
             background-color: #f4f7f6;
             font-family: 'Montserrat', sans-serif;
-            color: #4a4a4a;
+            color: #555;
+            line-height: 1.6;
+            margin: 0;
         }
-        
-        /* Contenedor principal para celular (FONDO ACTUALIZADO) */
+
+        /* --- CONTENEDOR PRINCIPAL --- */
         .invitacion-container {
-            max-width: 450px;
+            max-width: 480px;
             margin: 0 auto;
             
-            /* Capa semitransparente + Nueva Imagen de fondo */
+            /* Fondo con el ID que proporcionaste anteriormente */
             background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), 
-                url('https://drive.google.com/thumbnail?id=1Xq8aNLl1zs_jKj6r_glX_PI5_7OiT9Hr&sz=w1000');
+                linear-gradient(rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.15)), 
+                url('https://drive.google.com/thumbnail?id=155l-ltMkK8IbZaTitWrqI48LxyZWFsfR&sz=w1000');
             
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            box-shadow: 0 0 25px rgba(0,0,0,0.15);
             min-height: 100vh;
             position: relative;
             padding-bottom: 60px;
             overflow-x: hidden;
         }
 
-        /* Tipografía Cursiva */
-        h1, h2, .cursive-font {
-            font-family: 'Great Vibes', cursive;
-            color: #556B2F;
+        .content-wrapper {
+            padding: 50px 20px;
+        }
+
+        /* --- PALETA DE COLORES --- */
+        :root {
+            --color-primary: #6b8e4e; /* Verde Salvia */
+            --color-dark: #2c2c2c;    /* Gris oscuro */
+        }
+
+        /* --- TIPOGRAFÍA Y ENCABEZADOS --- */
+        
+        .header-group {
+            text-align: center;
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Título: "Mis 15 Años" - AHORA CON FUENTE PAPRIKA */
+        .sub-title {
+            font-family: "Paprika", system-ui; /* Cambio aplicado */
+            font-weight: 400;
+            font-style: normal;
+            color: var(--color-dark);
+            
+            /* Escala fluida mantenida */
+            font-size: clamp(1.8rem, 6vw, 2.5rem); 
+            letter-spacing: 1px;
+            line-height: 1.2;
+            margin-bottom: 5px;
         }
         
+        /* Nombre: "Suleika" */
         .main-title {
-            font-size: 4rem;
-            text-align: center;
-            margin-top: -10px; /* Ajustado al quitar la imagen */
-            margin-bottom: 20px;
-            line-height: 1;
+            font-family: 'Great Vibes', cursive;
+            color: var(--color-primary);
+            font-weight: 400;
+            font-size: clamp(4.5rem, 15vw, 6.5rem); 
+            line-height: 1.1;
+            margin: 0;
             text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
         }
 
-        .sub-title {
-            color: #8F9779;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 600;
-            font-size: 1.2rem;
-            margin-top: 30px; /* Más margen superior al no haber imagen */
+        /* Títulos de secciones */
+        .section-title {
+            font-family: 'Great Vibes', cursive;
+            color: var(--color-primary);
+            font-size: clamp(2rem, 8vw, 2.8rem);
+            margin-bottom: 15px;
+            line-height: 1.2;
         }
+
+        /* --- ELEMENTOS GRÁFICOS --- */
 
         /* Reproductor de Música */
         .music-player {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.7);
             border-radius: 50px;
-            padding: 8px 25px;
+            padding: 8px 20px;
             display: inline-flex;
             align-items: center;
             gap: 15px;
-            box-shadow: 0 4px 10px rgba(85, 107, 47, 0.15);
-            margin: 15px 0;
-            border: 1px solid #e0e0e0;
+            box-shadow: 0 4px 10px rgba(107, 142, 78, 0.15);
+            margin-top: 20px;
+            border: 1px solid rgba(255,255,255,0.6);
         }
         .play-btn {
-            background: #556B2F;
+            background: var(--color-primary);
             color: white;
             border: none;
-            width: 35px;
-            height: 35px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -86,146 +121,155 @@
             cursor: pointer;
             transition: 0.3s;
         }
-        .play-btn:hover { transform: scale(1.1); }
 
         /* Cuenta Regresiva */
+        .countdown-container {
+             background: rgba(255,255,255,0.6);
+             border-radius: 20px; 
+             box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+             margin: 30px 0;
+             padding: 20px;
+        }
         .countdown-box {
-            background: rgba(85, 107, 47, 0.08);
-            border-radius: 8px;
-            padding: 8px;
-            margin: 4px;
-            min-width: 65px;
-            border: 1px solid rgba(85, 107, 47, 0.1);
+            padding: 5px 10px;
+            text-align: center;
+            min-width: 60px;
         }
         .countdown-number {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #556B2F;
+            font-family: 'Playfair Display', serif; 
+            font-size: clamp(1.8rem, 5vw, 2.2rem);
+            font-weight: 600;
+            color: var(--color-dark);
             line-height: 1;
         }
         .countdown-label {
             font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+            color: var(--color-primary);
+            margin-top: 5px;
+            font-weight: 600;
         }
 
-        /* Botones */
-        .btn-custom {
-            background-color: #556B2F;
-            color: white !important;
-            border-radius: 30px;
-            padding: 12px 35px;
-            border: none;
-            transition: all 0.3s;
-            margin-top: 15px;
-            text-decoration: none;
-            display: inline-block;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .btn-custom:hover {
-            transform: translateY(-2px);
-            background-color: #3e4f22;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-        }
-
-        /* Tarjetas de Información */
+        /* --- TARJETAS DE TEXTO --- */
         .info-card {
-            background: rgba(255,255,255,0.95);
-            margin: 25px 15px;
+            background: rgba(255,255,255,0.65);
+            margin: 25px 0;
             padding: 30px 20px;
-            border-radius: 20px;
-            border: 1px solid #f0f0f0;
+            border-radius: 15px;
             position: relative;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.5);
         }
         
-        .section-title {
-            font-family: 'Great Vibes', cursive;
-            font-size: 2.2rem;
-            color: #556B2F;
-            margin-bottom: 10px;
-        }
-
         .names-text {
+            font-family: 'Playfair Display', serif;
             font-size: 1.1rem;
             font-weight: 600;
             color: #333;
             margin-bottom: 5px;
         }
 
+        /* ICONOS */
         .icon-box {
             font-size: 2rem;
-            color: #bfa15f;
+            color: var(--color-primary);
             margin-bottom: 15px;
         }
 
+        /* BOTONES */
+        .btn-custom {
+            background-color: var(--color-primary);
+            color: white !important;
+            border-radius: 50px;
+            padding: 12px 30px;
+            border: none;
+            transition: all 0.3s;
+            margin-top: 15px;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 10px rgba(107, 142, 78, 0.3);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            background-color: #536f3c;
+            box-shadow: 0 6px 15px rgba(107, 142, 78, 0.4);
+        }
+
+        /* Separador */
         .divider {
             height: 1px;
-            background: radial-gradient(circle, #556B2F 0%, transparent 100%);
-            width: 80%;
+            background: radial-gradient(circle, var(--color-primary) 0%, transparent 100%);
+            width: 70%;
             margin: 20px auto;
             opacity: 0.4;
         }
 
-        .fade-in {
-            animation: fadeIn 2s;
-        }
+        .fade-in { animation: fadeIn 1.5s ease-out; }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-<div class="invitacion-container text-center fade-in">
-    
-    <div class="content-wrapper p-3">
-        <h2 class="sub-title">Mis 15 Años</h2>
-        <h1 class="main-title">Suleika</h1>
+<div class="invitacion-container fade-in">
+    <div class="content-wrapper">
+        
+        <div class="header-group">
+            <h2 class="sub-title">Mis 15 Años</h2>
+            <h1 class="main-title">Suleika</h1>
 
-        <div class="music-player">
-            <span style="font-size: 0.8rem; letter-spacing: 1px;">MÚSICA</span>
-            <button class="play-btn" onclick="toggleMusic()" id="musicBtn">
-                <i class="fas fa-play"></i>
-            </button>
+            <div class="music-player">
+                <span style="font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; margin-right: 10px;">Escuchar Música</span>
+                <button class="play-btn" onclick="toggleMusic()" id="musicBtn">
+                    <i class="fas fa-play" style="font-size: 0.9rem;"></i>
+                </button>
+            </div>
+            <audio id="bgMusic" loop>
+                <source src="music.mp3" type="audio/mpeg">
+            </audio>
         </div>
-        <audio id="bgMusic" loop>
-            <source src="https://drive.google.com/uc?export=download&id=172TsHghZ1Be01WGm8S2v3oNTbL8VyBK4" type="audio/mpeg">
-        </audio>
 
         <div class="info-card">
-            <p class="fst-italic" style="line-height: 1.8;">
+            <p style="font-style: italic; font-size: 1rem;">
                 "Hoy comienza un nuevo capítulo en mi vida... dejo atrás la niñez para abrir las puertas a mis sueños. Mis 15 años llegan llenos de ilusión, alegría y gratitud, y nada será igual sin ti para celebrarlo conmigo."
             </p>
         </div>
 
         <div class="info-card">
             <h3 class="section-title">Mis Padres</h3>
-            <p class="names-text">Ahimara Suleika Guzmán Cárdenas</p>
-            <p class="names-text">Adalberto Ocegueda Guzmán</p>
+            <div class="names-text">Ahimara Suleika Guzmán Cárdenas</div>
+            <div class="names-text">Adalberto Ocegueda Guzmán</div>
             
             <div class="divider"></div>
             
             <h3 class="section-title">Mis Padrinos</h3>
-            <p class="names-text">Marisol Michel Canchola</p>
-            <p class="names-text">Juan Daniel Guzmán Cárdenas</p>
+            <div class="names-text">Marisol Michel Canchola</div>
+            <div class="names-text">Juan Daniel Guzmán Cárdenas</div>
         </div>
 
-        <p class="mt-4 mb-2 text-uppercase" style="letter-spacing: 2px;">Se complacen en invitarles a celebrar los XV</p>
+        <div style="text-align: center; margin: 40px 0;">
+            <p style="text-transform: uppercase; letter-spacing: 2px; color: var(--color-primary); font-weight: 600; font-size: 0.9rem;">
+                Se complacen en invitarles a celebrar los XV
+            </p>
+        </div>
 
-        <div class="my-4 p-3" style="background: rgba(255,255,255,0.6); border-radius: 15px;">
-            <div class="d-flex justify-content-center align-items-center mb-2">
-                <span style="font-size: 1.2rem; font-weight: bold; border-top: 1px solid #556B2F; border-bottom: 1px solid #556B2F; padding: 5px 20px;">SÁBADO</span>
+        <div class="countdown-container text-center">
+            <div style="border-top: 1px solid var(--color-primary); border-bottom: 1px solid var(--color-primary); display: inline-block; padding: 5px 30px; margin-bottom: 15px;">
+                <span style="font-size: 1.2rem; font-weight: 600; color: var(--color-primary); letter-spacing: 2px;">SÁBADO</span>
             </div>
             
-            <h2 style="font-size: 4rem; margin: 10px 0; color: #333;">07</h2>
-            <h3 class="text-uppercase" style="letter-spacing: 3px; font-size: 1.5rem;">Marzo 2026</h3>
-            <p class="fw-bold mt-2">7:00 PM</p>
+            <div style="font-family: 'Playfair Display', serif; font-size: clamp(3.5rem, 10vw, 4.5rem); color: var(--color-dark); line-height: 1;">07</div>
+            <div style="text-transform: uppercase; letter-spacing: 3px; font-size: 1.1rem; color: #777; margin-bottom: 10px;">Marzo 2026</div>
+            <div style="color: var(--color-primary); font-weight: 700; font-size: 1.2rem;">7:00 PM</div>
             
-            <div class="d-flex justify-content-center mt-4" id="countdown">
+            <div class="d-flex justify-content-center mt-4 flex-wrap" id="countdown">
                 <div class="countdown-box">
                     <div id="days" class="countdown-number">00</div>
                     <div class="countdown-label">Días</div>
@@ -248,17 +292,19 @@
         <div class="info-card">
             <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
             <h3 class="section-title">Recepción</h3>
-            <p class="fs-4 fw-bold">Salón Imperial</p>
+            <p class="names-text" style="font-size: 1.3rem;">Salón Imperial</p>
             <a href="https://maps.app.goo.gl/PERL6ZF839y24bPz5?g_st=am" target="_blank" class="btn-custom">
                 Ver Ubicación
             </a>
         </div>
 
         <div class="info-card">
-            <div class="icon-box"><i class="fas fa-user-tie"></i> <i class="fas fa-female"></i></div>
+            <div class="icon-box">
+                <i class="fas fa-user-tie"></i> <i class="fas fa-female"></i>
+            </div>
             <h3 class="section-title">Vestimenta</h3>
-            <p class="fs-5 fw-bold text-uppercase">Formal</p>
-            <p class="small text-muted mt-2">
+            <p style="font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Formal</p>
+            <p style="font-size: 0.9rem; margin-top: 10px;">
                 Amablemente, el color verde únicamente para la quinceañera.
             </p>
         </div>
@@ -266,22 +312,27 @@
         <div class="info-card">
             <div class="icon-box"><i class="fas fa-envelope-open-text"></i></div>
             <h3 class="section-title">Lluvia de Sobres</h3>
-            <p>Tu presencia en este día es muy importante, tu obsequio será un detalle significativo, agradezco tu detalle en efectivo, que será recibido en mi lluvia de sobres.</p>
+            <p style="font-size: 0.95rem;">
+                Tu presencia en este día es muy importante, tu obsequio será un detalle significativo. Agradezco tu detalle en efectivo, que será recibido en mi lluvia de sobres.
+            </p>
         </div>
 
-        <div class="mb-5 pb-5">
+        <div class="info-card" style="background: rgba(255,255,255,0.8);">
             <h3 class="section-title">Confirmar Asistencia</h3>
             <p>Por favor, confirma tu asistencia.</p>
-            <a href="https://wa.me/523222084527?text=Hola,%20confirmo%20mi%20asistencia%20a%20los%2015%20de%20Suleika" target="_blank" class="btn-custom" style="background-color: #25D366;">
+            <a href="https://wa.me/523222084527?text=Hola,%20confirmo%20mi%20asistencia%20a%20los%2015%20de%20Suleika" target="_blank" class="btn-custom">
                 <i class="fab fa-whatsapp"></i> Enviar WhatsApp
             </a>
         </div>
 
-        <p class="cursive-font fs-1 mb-5">¡Te esperamos!</p>
+        <div style="text-align: center; margin-top: 50px;">
+            <p class="main-title" style="font-size: clamp(2.5rem, 8vw, 3.5rem);">¡Te esperamos!</p>
+        </div>
     </div>
 </div>
 
 <script>
+    // Fecha: 7 Marzo 2026, 7:00 PM
     const eventDate = new Date(2026, 2, 7, 19, 0, 0).getTime();
 
     const countdownInterval = setInterval(function() {
@@ -300,10 +351,11 @@
 
         if (distance < 0) {
             clearInterval(countdownInterval);
-            document.getElementById("countdown").innerHTML = "¡Es hoy!";
+            document.getElementById("countdown").innerHTML = "<div style='width:100%; font-size:1.5rem; color:#6b8e4e'>¡Es hoy!</div>";
         }
     }, 1000);
 
+    // Reproductor de Música
     var music = document.getElementById("bgMusic");
     var btn = document.getElementById("musicBtn");
     var icon = btn.querySelector("i");
@@ -317,10 +369,7 @@
         } else {
             var playPromise = music.play();
             if (playPromise !== undefined) {
-                playPromise.then(_ => {
-                }).catch(error => {
-                    console.log("Auto-play prevenido por el navegador.");
-                });
+                playPromise.then(_ => {}).catch(error => console.log("Auto-play blocked"));
             }
             icon.classList.remove("fa-play");
             icon.classList.add("fa-pause");
